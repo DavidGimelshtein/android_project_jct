@@ -1,6 +1,7 @@
 package com.example.davidalex.postadeal.model.datasource;
 
 import android.content.ContentValues;
+import android.database.Cursor;
 
 import com.example.davidalex.postadeal.model.backend.IDSManager;
 import com.example.davidalex.postadeal.model.entities.Activity;
@@ -35,17 +36,17 @@ public class RemoteDsManager implements IDSManager {
     }
 
     @Override
-    public List<User> getUsersList() {
+    public Cursor getUsersList() {
         return null;
     }
 
     @Override
-    public List<Business> getBusinessList() {
+    public Cursor getBusinessList() {
         return null;
     }
 
     @Override
-    public List<Activity> getActivitiesList() {
+    public Cursor getActivitiesList() {
         return null;
     }
 

@@ -1,12 +1,15 @@
 package com.example.davidalex.postadeal.model.datasource;
 
 import android.content.ContentValues;
+import android.database.Cursor;
 
 import com.example.davidalex.postadeal.model.backend.IDSManager;
 import com.example.davidalex.postadeal.model.entities.Activity;
 import com.example.davidalex.postadeal.model.entities.Business;
+import com.example.davidalex.postadeal.model.entities.Categories;
 import com.example.davidalex.postadeal.model.entities.User;
 
+import java.util.ArrayList;
 import java.util.List;
 
 /**
@@ -15,27 +18,40 @@ import java.util.List;
 
 public class ListDsManager implements IDSManager {
 
-    private List<User> userList;
-    private List<Business> businessList;
-    private List<Activity> activityList;
-
-
-
+    private List<User> userList = new ArrayList<>();
+    private List<Business> businessList = new ArrayList<>();
+    private List<Activity> activityList = new ArrayList<>();
 
 
     @Override
     public void addUser(ContentValues userContent) {
 
+       userList.add(new User(userContent.getAsInteger(CustomContentProvider.USER_ID),
+               userContent.getAsString(CustomContentProvider.USER_NAME),
+               userContent.getAsString(CustomContentProvider.USER_PASSWORD)));
     }
 
     @Override
     public void addBusiness(ContentValues businessContent) {
 
+       businessList.add(new Business(businessContent.getAsInteger(CustomContentProvider.COMPANY_ID),
+               businessContent.getAsString(CustomContentProvider.COMPANY_NAME),
+               businessContent.getAsString(CustomContentProvider.COMPANY_ADRESS),
+               businessContent.getAsString(CustomContentProvider.COMPANY_TEL),
+               businessContent.getAsString(CustomContentProvider.COMPANY_EMAIL),
+               businessContent.getAsString(CustomContentProvider.COMPANY_WEB_SITE)));
     }
 
     @Override
     public void addActivity(ContentValues activityContent) {
 
+        activityList.add(new Activity((Categories)activityContent.get(CustomContentProvider.ACTIVITY_CATEGORY),
+                activityContent.getAsString(CustomContentProvider.ACTIVITY_PLACEMENT),
+                activityContent.getAsString(CustomContentProvider.ACTIVITY_START_DATE),
+                activityContent.getAsString(CustomContentProvider.ACTIVITY_END_DATE),
+                activityContent.getAsFloat(CustomContentProvider.ACTIVITY_PRICE),
+                activityContent.getAsString(CustomContentProvider.ACTIVITY_DESCRIPTION),
+                activityContent.getAsInteger(CustomContentProvider.ACTIVITY_COMPANY_ID)));
     }
 
     @Override
@@ -44,18 +60,21 @@ public class ListDsManager implements IDSManager {
     }
 
     @Override
-    public List<User> getUsersList() {
-        return null;
+    public Cursor getUsersList() {
+
+        return (Cursor)userList;
     }
 
     @Override
-    public List<Business> getBusinessList() {
-        return null;
+    public Cursor getBusinessList() {
+
+        return (Cursor)businessList;
     }
 
     @Override
-    public List<Activity> getActivitiesList() {
-        return null;
+    public Cursor getActivitiesList() {
+
+        return (Cursor)activityList;
     }
 
     @Override
