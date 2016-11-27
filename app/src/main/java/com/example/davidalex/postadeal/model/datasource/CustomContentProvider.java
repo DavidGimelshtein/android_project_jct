@@ -7,10 +7,13 @@ import android.content.UriMatcher;
 import android.database.Cursor;
 import android.net.Uri;
 import android.support.annotation.Nullable;
+import android.util.Log;
 
 import com.example.davidalex.postadeal.model.backend.IDSManager;
 import com.example.davidalex.postadeal.model.backend.ManagerFactory;
 import com.example.davidalex.postadeal.model.entities.Categories;
+
+import static com.example.davidalex.postadeal.model.datasource.ListDsManager.MY_LOG;
 
 /**
  * Created by david on 22.11.2016.
@@ -91,7 +94,7 @@ public class CustomContentProvider extends ContentProvider {
             default:
                 //throw new Exception("");
         }
-
+        Log.d(MY_LOG, "query in provider work");
         return result;
     }
 

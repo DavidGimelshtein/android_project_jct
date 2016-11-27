@@ -2,6 +2,7 @@ package com.example.davidalex.postadeal.model.datasource;
 
 import android.content.ContentValues;
 import android.database.Cursor;
+import android.util.Log;
 
 import com.example.davidalex.postadeal.model.backend.IDSManager;
 import com.example.davidalex.postadeal.model.entities.Activity;
@@ -18,6 +19,7 @@ import java.util.List;
 
 public class ListDsManager implements IDSManager {
 
+    public static final String MY_LOG ="my_log" ;
     private List<User> userList = new ArrayList<>();
     private List<Business> businessList = new ArrayList<>();
     private List<Activity> activityList = new ArrayList<>();
@@ -26,9 +28,14 @@ public class ListDsManager implements IDSManager {
     @Override
     public void addUser(ContentValues userContent) {
 
-       userList.add(new User(userContent.getAsInteger(CustomContentProvider.USER_ID),
-               userContent.getAsString(CustomContentProvider.USER_NAME),
-               userContent.getAsString(CustomContentProvider.USER_PASSWORD)));
+        try {
+            userList.add(new User(userContent.getAsInteger(CustomContentProvider.USER_ID),
+                    userContent.getAsString(CustomContentProvider.USER_NAME),
+                    userContent.getAsString(CustomContentProvider.USER_PASSWORD)));
+            Log.d(MY_LOG , "add user in ListDsManager everything good");
+        } catch (Exception e) {
+            Log.d(MY_LOG , "add user in ListDsManager -- something wrong");
+        }
     }
 
     @Override
@@ -61,8 +68,10 @@ public class ListDsManager implements IDSManager {
 
     @Override
     public Cursor getUsersList() {
-
-        return (Cursor)userList;
+        Log.d(MY_LOG, "in getUsersList in class ListDsManager");
+        for(int i = 0; i < userList.size(); i++)
+            Log.d(MY_LOG, userList.get(i).getUserName() + " " + (i+1));
+        return null;
     }
 
     @Override
