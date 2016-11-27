@@ -1,7 +1,11 @@
 package com.example.davidalex.postadeal.model.datasource;
 
 import android.content.ContentValues;
+import android.content.Context;
 import android.database.Cursor;
+import android.view.View;
+import android.view.ViewGroup;
+import android.widget.CursorAdapter;
 
 import com.example.davidalex.postadeal.model.backend.IDSManager;
 import com.example.davidalex.postadeal.model.entities.Activity;
@@ -21,6 +25,8 @@ public class ListDsManager implements IDSManager {
     private List<User> userList = new ArrayList<>();
     private List<Business> businessList = new ArrayList<>();
     private List<Activity> activityList = new ArrayList<>();
+
+    private static int existActivities = 0;
 
 
     @Override
@@ -56,14 +62,25 @@ public class ListDsManager implements IDSManager {
 
     @Override
     public Boolean checkChanges() {
-        return null;
+        if (existActivities < activityList.size())
+        {
+            existActivities = activityList.size();
+            return true;
+        }
+        return false;
     }
 
     @Override
     public Cursor getUsersList() {
 
-        return (Cursor)userList;
-    }
+
+
+
+    Cursor cursor = (Cursor)userList;
+
+    cursor.moveToFirst();
+    return cursor;
+}
 
     @Override
     public Cursor getBusinessList() {

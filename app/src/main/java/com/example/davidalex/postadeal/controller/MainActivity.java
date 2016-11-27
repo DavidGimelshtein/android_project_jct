@@ -2,6 +2,7 @@ package com.example.davidalex.postadeal.controller;
 
 import android.content.ContentValues;
 import android.content.DialogInterface;
+import android.database.Cursor;
 import android.net.Uri;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
@@ -23,6 +24,7 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
         super.onCreate(savedInstanceState);
         setContentView(R.layout.main_activity);
 
+
         dataContent = new ContentValues();
         addUser();
 
@@ -43,6 +45,7 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
         dataContent.put(CustomContentProvider.USER_ID, "1");
 
         Uri uri = getContentResolver().insert(CustomContentProvider.USER_CONTENT_URI , dataContent);
+        Cursor cursor = getContentResolver().query(CustomContentProvider.USER_CONTENT_URI ,null, null, null,null);
 
         //Toast.makeText(getBaseContext(), uri.toString(), Toast.LENGTH_LONG).show();
     }

@@ -50,6 +50,8 @@ public class CustomContentProvider extends ContentProvider {
     //static final String URL = "content://" + PROVIDER_NAME + "/userTable";
     //static final String URL = "content://" + PROVIDER_NAME + "/businessTable";
     //static final String URL = "content://" + PROVIDER_NAME + "/activityTable";
+
+
     public static final Uri USER_CONTENT_URI = Uri.parse( "content://" + PROVIDER_NAME + "/users");
     static final Uri BUSINESS_CONTENT_URI = Uri.parse("content://" + PROVIDER_NAME + "/businesses");
     static final Uri ACTIVITY_CONTENT_URI = Uri.parse("content://" + PROVIDER_NAME + "/activities");
