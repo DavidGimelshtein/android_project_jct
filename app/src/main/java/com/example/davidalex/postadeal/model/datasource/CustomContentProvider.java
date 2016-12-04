@@ -132,4 +132,5 @@ public class CustomContentProvider extends ContentProvider {
     public int update(Uri uri, ContentValues contentValues, String s, String[] strings) {
         return 0;
     }
+
 }
