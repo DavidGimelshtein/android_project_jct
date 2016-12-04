@@ -12,13 +12,9 @@ import android.widget.Toast;
 
 import com.example.davidalex.postadeal.R;
 import com.example.davidalex.postadeal.model.backend.IDSManager;
-import com.example.davidalex.postadeal.model.backend.ManagerFactory;
 import com.example.davidalex.postadeal.model.datasource.CustomContentProvider;
-import com.example.davidalex.postadeal.model.datasource.ListDsManager;
 import com.example.davidalex.postadeal.model.entities.Categories;
 import com.example.davidalex.postadeal.model.entities.User;
-
-import static com.example.davidalex.postadeal.model.datasource.ListDsManager.MY_LOG;
 
 //import static com.example.davidalex.postadeal.model.datasource.ListDsManager.MY_LOG;
 
@@ -72,16 +68,12 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
         uri = getContentResolver().insert(CustomContentProvider.ACTIVITY_CONTENT_URI, dataContent);
         //get user list
         cursor = getContentResolver().query(CustomContentProvider.USER_CONTENT_URI, null, null, null, null);
-        printCursorToLog(cursor);
         //get businesses list
         cursor = getContentResolver().query(CustomContentProvider.BUSINESS_CONTENT_URI, null, null, null, null);
-        printCursorToLog(cursor);
         //get activities list
         cursor = getContentResolver().query(CustomContentProvider.ACTIVITY_CONTENT_URI, null, null, null, null);
-        printCursorToLog(cursor);
         //checking if there is a new Activities
-        ListDsManager listDsManager = (ListDsManager)CustomContentProvider.dsManager;
-        listDsManager.checkChanges();
+
         //checking if there is a new Activities
 
 
@@ -95,25 +87,25 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
         }
     }
 
-    void printCursorToLog(Cursor c){
-        if (c != null) {
-            if (c.moveToFirst()) {
-                String str;
-                do {
-                    str = "";
-                    for (String cn : c.getColumnNames()) {
-                        str = str.concat(cn + " = "
-                                + c.getString(c.getColumnIndex(cn)) + "; ");
-
-                    }
-                    Log.d(MY_LOG, str);
-
-                } while (c.moveToNext());
-            }
-            c.close();
-        } else
-            Log.d(MY_LOG, "Cursor is null");
-    }
+//    void printCursorToLog(Cursor c){
+//        if (c != null) {
+//            if (c.moveToFirst()) {
+//                String str;
+//                do {
+//                    str = "";
+//                    for (String cn : c.getColumnNames()) {
+//                        str = str.concat(cn + " = "
+//                                + c.getString(c.getColumnIndex(cn)) + "; ");
+//
+//                    }
+//                    Log.d(MY_LOG, str);
+//
+//                } while (c.moveToNext());
+//            }
+//            c.close();
+//        } else
+//            Log.d(MY_LOG, "Cursor is null");
+//    }
 
     private void addUser() {
         // Add a new student record
