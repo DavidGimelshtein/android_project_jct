@@ -6,22 +6,22 @@ package com.example.davidalex.postadeal.model.entities;
 
 public class User {
 
-    private int userID;
+    private static int userID = 0;
     private String userName;
     private String userPassword;
 
-    public User(int userID, String userName, String userPassword) {
-        this.userID = userID;
+    public User(String userName, String userPassword) {
+        this.userID++;
         this.userName = userName;
         this.userPassword = userPassword;
     }
 
-    public int getUserID() {
+    public static int getUserID() {
         return userID;
     }
 
-    public void setUserID(int userID) {
-        this.userID = userID;
+    public static void setUserID(int userID) {
+        User.userID = userID;
     }
 
     public String getUserName() {

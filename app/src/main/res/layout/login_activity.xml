@@ -7,6 +7,14 @@
     android:orientation="vertical"
     tools:context="com.example.davidalex.postadeal.controller.LoginActivity">
 
+    <TextView
+        android:id="@+id/loginError"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="this login name is already used"
+        android:textSize="20sp"
+        android:textColor="#f41414"/>
+
     <EditText
         android:id="@+id/user_name"
         android:layout_width="wrap_content"
@@ -20,9 +28,24 @@
         android:hint="password"/>
 
     <Button
+        android:id="@+id/login_button"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:text="sign in "
+        android:onClick="onClick"
+        android:text="sign in " />
+
+    <Button
+        android:id="@+id/register_button"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="registration"
         android:onClick="onClick"/>
+
+    <ProgressBar
+        android:id="@+id/loginProgressBar"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:max="10"
+        style="@android:style/Widget.ProgressBar.Horizontal"/>
 
 </LinearLayout>

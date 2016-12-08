@@ -2,6 +2,7 @@ package com.example.davidalex.postadeal.controller;
 
 import android.content.ContentValues;
 import android.content.DialogInterface;
+import android.content.Intent;
 import android.database.Cursor;
 import android.net.Uri;
 import android.support.v7.app.AppCompatActivity;
@@ -19,7 +20,7 @@ import com.example.davidalex.postadeal.model.entities.User;
 //import static com.example.davidalex.postadeal.model.datasource.ListDsManager.MY_LOG;
 
 
-public class MainActivity extends AppCompatActivity implements View.OnClickListener {
+public class MainActivity extends AppCompatActivity  {
 
     private ContentValues dataContent;
     private Uri uri;
@@ -35,7 +36,14 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
         dataContent.put(CustomContentProvider.USER_NAME, "David");
         dataContent.put(CustomContentProvider.USER_PASSWORD, "DGjhjkgl845");
         dataContent.put(CustomContentProvider.USER_ID, "1");
+
+
+
         uri = getContentResolver().insert(CustomContentProvider.USER_CONTENT_URI, dataContent);
+
+
+
+
         //inserting  new User
         dataContent.put(CustomContentProvider.USER_NAME, "Alex");
         dataContent.put(CustomContentProvider.USER_PASSWORD, "A64646ldx");
@@ -79,12 +87,14 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
 
     }
 
-    @Override
-    public void onClick(View view) {
 
-        switch (view.getId()) {
+    public void addNewBusiness(View view) {
 
-        }
+        //new add business dialog
+    }
+
+    public void addNewAction(View view) {
+        startActivity(new Intent(this, NewActionActivity.class));
     }
 
 //    void printCursorToLog(Cursor c){

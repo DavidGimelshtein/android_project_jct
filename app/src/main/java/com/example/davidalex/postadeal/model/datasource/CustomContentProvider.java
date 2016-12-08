@@ -2,10 +2,12 @@ package com.example.davidalex.postadeal.model.datasource;
 
 import android.content.ContentProvider;
 import android.content.ContentResolver;
+import android.content.ContentUris;
 import android.content.ContentValues;
 import android.content.UriMatcher;
 import android.database.Cursor;
 import android.net.Uri;
+import android.os.AsyncTask;
 import android.support.annotation.Nullable;
 import android.util.Log;
 
@@ -18,11 +20,11 @@ import com.example.davidalex.postadeal.model.backend.ManagerFactory;
 
 public class CustomContentProvider extends ContentProvider {
 
+    public static IDSManager dsManager = ManagerFactory.getDsManager("ListDsManager");
+
     public static final int USERS = 1;
     public static final int BUSINESSES = 2;
     public static final int ACTIVITIES = 3;
-
-    public static IDSManager dsManager = ManagerFactory.getDsManager("ListDsManager");
 
     public static final String USER_NAME = "user_name";
     public static final String USER_PASSWORD = "user_password";
@@ -43,24 +45,14 @@ public class CustomContentProvider extends ContentProvider {
     public static final String ACTIVITY_DESCRIPTION = "activity_description";
     public static final String ACTIVITY_COMPANY_ID = "activity_company_id";
 
-
-
-
     static final String PROVIDER_NAME = "com.example.davidalex.postadeal.MyProvider";
-    //static final String URL = "content://" + PROVIDER_NAME + "/userTable";
-    //static final String URL = "content://" + PROVIDER_NAME + "/businessTable";
-    //static final String URL = "content://" + PROVIDER_NAME + "/activityTable";
 
-
-    public static final Uri USER_CONTENT_URI = Uri.parse( "content://" + PROVIDER_NAME + "/users");
+    public static final Uri USER_CONTENT_URI = Uri.parse("content://" + PROVIDER_NAME + "/users");
     public static final Uri BUSINESS_CONTENT_URI = Uri.parse("content://" + PROVIDER_NAME + "/businesses");
     public static final Uri ACTIVITY_CONTENT_URI = Uri.parse("content://" + PROVIDER_NAME + "/activities");
 
-
-
-
     static final UriMatcher uriMatcher;
-    //private static HashMap<String, String> values;
+
     static {
         uriMatcher = new UriMatcher(UriMatcher.NO_MATCH);
         uriMatcher.addURI(PROVIDER_NAME, "users", 1);
@@ -69,6 +61,13 @@ public class CustomContentProvider extends ContentProvider {
     }
 
 
+    Uri uri;
+    ContentValues contentValues;
+    String[] projection;
+    String[] selectionArgum;
+    String selectionClause, sortOrder;
+    Cursor result;
+
     @Override
     public boolean onCreate() {
         return false;
@@ -76,24 +75,33 @@ public class CustomContentProvider extends ContentProvider {
 
     @Nullable
     @Override
-    public Cursor query(Uri uri, String[] strings, String s, String[] strings1, String s1) {
+    public Cursor query(Uri uri, final String[] projection, final String selectionClause, final String[] selectionArgum, final String sortOrder) {
 
-        Cursor result = null;
-
+        this.uri = uri;
+        this.selectionArgum = selectionArgum;
+        result = null;
         switch (uriMatcher.match(uri)) {
             case USERS:
-                result = dsManager.getUsersList();
+
+                result = dsManager.getUsersList(projection, selectionClause, selectionArgum, sortOrder);
+
+
                 break;
             case BUSINESSES:
+
+
                 result = dsManager.getBusinessList();
+
                 break;
             case ACTIVITIES:
+
+
                 result = dsManager.getActivitiesList();
+
                 break;
             default:
                 //throw new Exception("");
         }
-
         return result;
     }
 
@@ -109,13 +117,21 @@ public class CustomContentProvider extends ContentProvider {
 
         switch (uriMatcher.match(uri)) {
             case USERS:
+
+
                 dsManager.addUser(contentValues);
+
+
                 break;
             case BUSINESSES:
+
                 dsManager.addBusiness(contentValues);
+
                 break;
             case ACTIVITIES:
+
                 dsManager.addActivity(contentValues);
+
                 break;
             default:
                 //throw new Exception("");

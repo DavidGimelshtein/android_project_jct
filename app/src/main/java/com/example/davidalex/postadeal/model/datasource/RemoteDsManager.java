@@ -36,7 +36,9 @@ public class RemoteDsManager implements IDSManager {
     }
 
     @Override
-    public Cursor getUsersList() {
+    public Cursor getUsersList(String[] projection, String selectionClause, String[] selectionArgum, String sortOrder) {
+
+        //userCursor = db.query("TBLE", columns, selection, selectionArgum, s1, null, null, null);
         return null;
     }
 

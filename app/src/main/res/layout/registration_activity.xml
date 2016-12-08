@@ -1,0 +1,39 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:id="@+id/registration_activity"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:orientation="vertical"
+    tools:context="com.example.davidalex.postadeal.controller.RegistrationActivity">
+
+    <TextView
+        android:id="@+id/regErrorMessage"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:textSize="17dp"
+        android:text="*the line of an error messages"
+        android:textStyle="italic"
+        android:textColor="#f20909"/>
+    <EditText
+        android:id="@+id/regLoginName"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:hint="login name"/>
+    <EditText
+        android:id="@+id/regPassFirst"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:hint="password"/>
+    <EditText
+        android:id="@+id/regPassSecond"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:hint="comfirm the password"/>
+    <Button
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="save"
+        android:onClick="registration"/>
+
+</LinearLayout>

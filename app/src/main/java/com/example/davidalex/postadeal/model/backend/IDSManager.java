@@ -13,7 +13,7 @@ public interface IDSManager {
     void addBusiness(ContentValues businessContent);
     void addActivity(ContentValues activityContent);
     Boolean checkChanges();
-    Cursor getUsersList();
+    Cursor getUsersList(String[] projection, String selectionClause, String[] selectionArgum, String sortOrder);
     Cursor getBusinessList();
     Cursor getActivitiesList();
     void reportChanges();
