@@ -1,0 +1,68 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:layout_margin="4dp"
+    android:padding="10dp"
+    android:orientation="horizontal">
+
+    <ImageView
+        android:layout_width="200dp"
+        android:layout_height="280dp"
+        android:id="@+id/cover_image_dialog"
+        android:src="@drawable/castle_france"
+        android:padding="5dp"
+        android:layout_gravity="center"/>
+    <TextView
+        android:id="@+id/place_dialog"
+        android:layout_toRightOf="@id/cover_image_dialog"
+        android:layout_marginLeft="10dp"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="Place"
+        android:textColor="#000"
+        android:textSize="18sp"/>
+    <TextView
+        android:id="@+id/date_dialog"
+        android:layout_toRightOf="@id/cover_image_dialog"
+        android:layout_below="@id/place_dialog"
+        android:layout_marginLeft="10dp"
+        android:layout_marginTop="5dp"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="Date"
+        android:textColor="#000"
+        android:textSize="18sp"/>
+    <TextView
+        android:id="@+id/price_dialog"
+        android:layout_toRightOf="@id/cover_image_dialog"
+        android:layout_below="@id/date_dialog"
+        android:layout_marginLeft="10dp"
+        android:layout_marginTop="5dp"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="Price"
+        android:textColor="#000"
+        android:textSize="18sp"/>
+    <TextView
+        android:layout_toRightOf="@id/cover_image_dialog"
+        android:layout_below="@id/price_dialog"
+        android:layout_marginLeft="10dp"
+        android:layout_marginTop="5dp"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="Company"
+        android:textColor="#000"
+        android:textSize="18sp"/>
+
+    <TextView
+        android:layout_below="@id/cover_image_dialog"
+        android:layout_alignLeft="@id/cover_image_dialog"
+        android:layout_alignRight="@id/cover_image_dialog"
+        android:layout_width="wrap_content"
+        android:layout_height="90dp"
+        android:text="Description... The beautifull place for journy and relax, in the heard of France..."
+        android:textColor="#000"
+        android:textSize="18sp"/>
+
+</RelativeLayout>

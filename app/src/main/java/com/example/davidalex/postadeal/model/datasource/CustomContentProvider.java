@@ -20,7 +20,8 @@ import com.example.davidalex.postadeal.model.backend.ManagerFactory;
 
 public class CustomContentProvider extends ContentProvider {
 
-    public static IDSManager dsManager = ManagerFactory.getDsManager("ListDsManager");
+    //public static IDSManager dsManager = ManagerFactory.getDsManager("ListDsManager");
+    public static IDSManager dsManager = ManagerFactory.getDsManager("RemoteDsManager");
 
     public static final int USERS = 1;
     public static final int BUSINESSES = 2;
@@ -30,12 +31,14 @@ public class CustomContentProvider extends ContentProvider {
     public static final String USER_PASSWORD = "user_password";
     public static final String USER_ID = "_id";
 
-    public static final String COMPANY_ID = "company_id";
+    public static final String USER_INFO = "user_id";
+    public static final String COMPANY_ID = "_id";
     public static final String COMPANY_NAME = "company_name";
     public static final String COMPANY_ADRESS = "company_adress";
     public static final String COMPANY_TEL = "company_tel";
     public static final String COMPANY_EMAIL = "company_email";
     public static final String COMPANY_WEB_SITE = "company_web_site";
+    public static final String COMPANY_ICON = "company_icon";
 
     public static final String ACTIVITY_CATEGORY = "activity_category";
     public static final String ACTIVITY_PLACEMENT = "activity_placement";
@@ -44,6 +47,7 @@ public class CustomContentProvider extends ContentProvider {
     public static final String ACTIVITY_PRICE = "activity_price";
     public static final String ACTIVITY_DESCRIPTION = "activity_description";
     public static final String ACTIVITY_COMPANY_ID = "activity_company_id";
+    public static final String ACTIVITY_IMAGE_ID = "activity_image_id";
 
     static final String PROVIDER_NAME = "com.example.davidalex.postadeal.MyProvider";
 
@@ -90,13 +94,13 @@ public class CustomContentProvider extends ContentProvider {
             case BUSINESSES:
 
 
-                result = dsManager.getBusinessList();
+                result = dsManager.getBusinessList(projection, selectionClause, selectionArgum, sortOrder);
 
                 break;
             case ACTIVITIES:
 
 
-                result = dsManager.getActivitiesList();
+                result = dsManager.getActivitiesList(projection, selectionClause, selectionArgum, sortOrder);
 
                 break;
             default:

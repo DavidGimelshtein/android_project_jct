@@ -7,6 +7,7 @@ import android.os.AsyncTask;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
 import android.view.View;
+import android.widget.CheckBox;
 import android.widget.EditText;
 import android.widget.ProgressBar;
 
@@ -30,8 +31,6 @@ public class LoginActivity extends AppCompatActivity {
     SaveSharedPreference userPreferences;
 
 
-
-
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -43,7 +42,7 @@ public class LoginActivity extends AppCompatActivity {
         loginProgressBar = (ProgressBar)findViewById(R.id.loginProgressBar);
         loginProgressBar.setProgress(0);
         populateLoginFields();
-        //  startService(new Intent(this, UpdateService.class));
+        startService(new Intent(this, UpdateService.class));
         //check if fields are not empty
         //if the login name with the password are already stored in the data base then invoke main Activity
         //if not then open registration
@@ -54,29 +53,34 @@ public class LoginActivity extends AppCompatActivity {
             case R.id.login_button:
                 //check if fields are not empty
                 selectionArgum = new String[]{userName.getText().toString(), userPassword.getText().toString()};
+                loginProgressBar.setVisibility(View.VISIBLE);
                 new MyAsyncTask(new IProviderTasks() {
-
                     @Override
                     public void doInBackground() {
-                       queryCursor = context.getContentResolver().query(CustomContentProvider.USER_CONTENT_URI, null,
-                        null, selectionArgum, null);
+                        //return id of user if exist
+                        queryCursor = context.getContentResolver().query(CustomContentProvider.USER_CONTENT_URI, null,
+                                null, selectionArgum, null);
                     }
 
                     @Override
                     public void onPostExecute() {
-                        if (queryCursor != null)
-                            startActivity(new Intent(context, MainActivity.class));//maybe it will be pass also info of the user
-                        else {
-                            String r = "The login name or password are incorect";
-                             loginError.setText(r);
+                        if (queryCursor != null) {
+                            if (((CheckBox) findViewById(R.id.loginCheckbox)).isChecked()) {
+                                //saved preferences
+                                userPreferences.savePreferences(context, selectionArgum[0], selectionArgum[1]);
+                            }
+                            queryCursor.moveToFirst();
+                            selectionArgum[1] = queryCursor.getString(0);
+                            startActivity(new Intent(context, MainActivity.class).putExtra("USER_INFO", selectionArgum));
+                        } else {
+                            loginError.setText("The login name or password are incorect");
+                            loginProgressBar.setVisibility(View.GONE);
                         }
                     }
 
                     @Override
                     public void onProgressUpdate(Integer... values) {
-                       loginProgressBar.setProgress(values[0]);
-//                        //Toast toast = Toast.makeText(context, values[0].toString(), Toast.LENGTH_SHORT);
-//                        //toast.show();
+                        loginProgressBar.setProgress(values[0]);
                     }
                 }).execute();
                 break;
@@ -88,13 +92,20 @@ public class LoginActivity extends AppCompatActivity {
         }
     }
 
-    private  void populateLoginFields() {
+    private void populateLoginFields() {
 
-        if (userPreferences.getUserName(this) != null && userPreferences.getUserPassword(this) != null) {
-            userName.setText(userPreferences.getUserName(this));
-            userPassword.setText(userPreferences.getUserPassword(this));
+        Intent registrationIntent = getIntent();
+        String[] userInfo = registrationIntent.getStringArrayExtra("User_Info");
+        if (userInfo == null) {
+
+            if (userPreferences.getUserName(this) != null && userPreferences.getUserPassword(this) != null) {
+                userName.setText(userPreferences.getUserName(this));
+                userPassword.setText(userPreferences.getUserPassword(this));
+            }
+        }
+        else {
+            userName.setText(userInfo[0]);
+            userPassword.setText(userInfo[1]);
         }
     }
-
-
 }

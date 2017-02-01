@@ -12,9 +12,10 @@ public interface IDSManager {
     void addUser(ContentValues userContent);
     void addBusiness(ContentValues businessContent);
     void addActivity(ContentValues activityContent);
-    Boolean checkChanges();
+    int checkNewActivities();
+    int checkNewBusinesses();
     Cursor getUsersList(String[] projection, String selectionClause, String[] selectionArgum, String sortOrder);
-    Cursor getBusinessList();
-    Cursor getActivitiesList();
+    Cursor getBusinessList(String[] projection, String selectionClause, String[] selectionArgum, String sortOrder);
+    Cursor getActivitiesList(String[] projection, String selectionClause, String[] selectionArgum, String sortOrder);
     void reportChanges();
 }

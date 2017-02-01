@@ -1,0 +1,127 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="@drawable/veneciya"
+    tools:context="com.example.davidalex.postadeal.controller.RegistrationActivity">
+
+    <RelativeLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:background="#9e000000">
+
+        <TextView
+            android:id="@+id/regErrorMessage"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_centerHorizontal="true"
+            android:layout_marginTop="110dp"
+            android:textColor="#E3170A"
+            android:textSize="15sp"
+            android:textStyle="italic|bold" />
+
+        <Button
+            android:id="@+id/login_button"
+            android:layout_width="60dp"
+            android:layout_height="60dp"
+            android:layout_below="@+id/loginFields"
+            android:layout_centerHorizontal="true"
+            android:layout_marginTop="20dp"
+            android:background="@drawable/ok_button"
+            android:onClick="registration"
+            android:text="save"
+            android:textColor="#FAFCFD"
+            android:textSize="15sp" />
+
+        <LinearLayout
+            android:id="@+id/loginFields"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_below="@+id/regErrorMessage"
+            android:layout_centerHorizontal="true"
+            android:layout_marginLeft="35dp"
+            android:layout_marginRight="35dp"
+            android:layout_marginTop="10dp"
+            android:background="@drawable/login_drw"
+            android:orientation="vertical"
+            android:paddingBottom="20dp"
+            android:paddingLeft="5dp"
+            android:paddingTop="20dp">
+
+
+            <EditText
+                android:id="@+id/regLoginName"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_gravity="center"
+                android:layout_marginLeft="8dp"
+                android:background="@null"
+                android:hint="Username"
+                android:inputType="textPersonName"
+                android:textCursorDrawable="@drawable/cursor"
+                android:textSize="20sp" />
+
+
+            <TextView
+                android:layout_width="match_parent"
+                android:layout_height="1sp"
+                android:layout_marginLeft="10dp"
+                android:layout_marginRight="10dp"
+                android:layout_marginTop="5dp"
+                android:background="#000" />
+
+
+            <EditText
+                android:id="@+id/regPassFirst"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_gravity="center"
+                android:layout_marginLeft="8dp"
+                android:background="@null"
+                android:hint="Password"
+                android:inputType="textPassword"
+                android:paddingTop="5dp"
+                android:textCursorDrawable="@drawable/cursor"
+                android:textSize="20sp" />
+
+            <TextView
+                android:layout_width="match_parent"
+                android:layout_height="1sp"
+                android:layout_marginLeft="10dp"
+                android:layout_marginRight="10dp"
+                android:layout_marginTop="5dp"
+                android:background="#000" />
+
+
+            <EditText
+                android:id="@+id/regPassSecond"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_gravity="center"
+                android:layout_marginLeft="8dp"
+                android:background="@null"
+                android:hint="Commit Password"
+                android:inputType="textPassword"
+                android:paddingTop="5dp"
+                android:textCursorDrawable="@drawable/cursor"
+                android:textSize="20sp" />
+
+        </LinearLayout>
+
+        <ProgressBar
+            android:id="@+id/regProgressBar"
+            style="@android:style/Widget.Material.ProgressBar.Horizontal"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_alignParentBottom="true"
+            android:progressTint="#308e30"
+            android:max="10" />
+
+    </RelativeLayout>
+</RelativeLayout>
+
+
+
+
+

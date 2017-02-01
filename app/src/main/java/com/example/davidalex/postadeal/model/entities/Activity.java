@@ -13,9 +13,10 @@ public class Activity {
     private float activityPrice;
     private String activityDescription;
     private int companyID;
+    private int imageID;
 
     public Activity(Categories activityCategory, String activityPlacement, String activityStartDate, String activityEndDate,
-                    float activityPrice, String activityDescription, int companyID) {
+                    float activityPrice, String activityDescription, int companyID, int imageID) {
         this.activityCategory = activityCategory;
         this.activityPlacement = activityPlacement;
         this.activityStartDate = activityStartDate;
@@ -23,6 +24,15 @@ public class Activity {
         this.activityPrice = activityPrice;
         this.activityDescription = activityDescription;
         this.companyID = companyID;
+        this.imageID = imageID;
+    }
+
+    public int getImageID() {
+        return imageID;
+    }
+
+    public void setImageID(int imageID) {
+        this.imageID = imageID;
     }
 
     public Categories getActivityCategory() {

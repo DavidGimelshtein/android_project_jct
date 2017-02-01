@@ -1,0 +1,103 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="#d2000000"
+    android:orientation="vertical">
+
+    <EditText
+        android:id="@+id/companyName"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="35dp"
+        android:layout_marginLeft="25dp"
+        android:layout_marginRight="25dp"
+        android:layout_gravity="center"
+        android:padding="5dp"
+        android:background="#ffffff"
+        android:hint="Name"
+        android:textCursorDrawable="@drawable/cursor"
+        android:textSize="20sp"
+        android:textColorLink="@android:color/holo_green_dark" />
+
+    <EditText
+        android:id="@+id/companyAdress"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginLeft="25dp"
+        android:layout_marginRight="25dp"
+        android:layout_gravity="center"
+        android:padding="5dp"
+        android:background="#ffffff"
+        android:layout_marginTop="15dp"
+        android:hint="Address"
+        android:textSize="20sp" />
+
+    <EditText
+        android:id="@+id/companyTel"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginLeft="25dp"
+        android:layout_marginRight="25dp"
+        android:layout_gravity="center"
+        android:padding="5dp"
+        android:background="#ffffff"
+        android:layout_marginTop="15dp"
+        android:hint="Tel"
+        android:inputType="phone"
+        android:textSize="20sp" />
+
+    <EditText
+        android:id="@+id/companyEmail"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginLeft="25dp"
+        android:layout_marginRight="25dp"
+        android:layout_gravity="center"
+        android:padding="5dp"
+        android:background="#ffffff"
+        android:layout_marginTop="15dp"
+        android:hint="Email"
+        android:inputType="textEmailAddress"
+        android:textSize="20sp" />
+
+    <EditText
+        android:id="@+id/companyWebSite"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginLeft="25dp"
+        android:layout_marginRight="25dp"
+        android:layout_gravity="center"
+        android:padding="5dp"
+        android:background="#ffffff"
+        android:layout_marginTop="15dp"
+        android:hint="Web"
+        android:inputType="textUri"
+        android:textSize="20sp" />
+
+    <Button
+        android:id="@+id/dialog_button"
+        android:layout_width="60dp"
+        android:layout_height="60dp"
+        android:layout_gravity="center"
+        android:layout_marginTop="20dp"
+        android:layout_marginBottom="20dp"
+        android:background="@drawable/ok_button"
+        android:paddingBottom="5dp"
+        android:paddingLeft="5dp"
+        android:paddingRight="5dp"
+        android:paddingTop="5dp"
+        android:text="ok"
+        android:textColor="#FAFCFD"
+        android:textSize="18sp"  />
+
+    <ProgressBar
+        android:id="@+id/dialogProgressBar"
+        style="@android:style/Widget.Material.ProgressBar.Horizontal"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_alignParentBottom="true"
+        android:progressTint="#308e30"
+        android:max="10" />
+</LinearLayout>

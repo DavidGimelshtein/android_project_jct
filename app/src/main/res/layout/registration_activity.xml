@@ -1,39 +1,92 @@
 <?xml version="1.0" encoding="utf-8"?>
-<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:tools="http://schemas.android.com/tools"
     android:id="@+id/registration_activity"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    android:orientation="vertical"
+    android:background="@drawable/veneciya"
     tools:context="com.example.davidalex.postadeal.controller.RegistrationActivity">
 
-    <TextView
-        android:id="@+id/regErrorMessage"
-        android:layout_width="wrap_content"
+    <ProgressBar
+        android:id="@+id/regProgressBar"
+        style="@android:style/Widget.Material.ProgressBar.Horizontal"
+        android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:textSize="17dp"
-        android:text="*the line of an error messages"
-        android:textStyle="italic"
-        android:textColor="#f20909"/>
-    <EditText
-        android:id="@+id/regLoginName"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:hint="login name"/>
-    <EditText
-        android:id="@+id/regPassFirst"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:hint="password"/>
-    <EditText
-        android:id="@+id/regPassSecond"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:hint="comfirm the password"/>
-    <Button
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:text="save"
-        android:onClick="registration"/>
+        android:layout_alignParentBottom="true"
+        android:max="10" />
 
-</LinearLayout>
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:layout_marginLeft="30dp"
+        android:layout_marginRight="30dp"
+        android:background="#96050609"
+        android:orientation="vertical"
+        android:paddingBottom="20dp"
+        android:paddingLeft="20dp"
+        android:paddingRight="20dp"
+        android:paddingTop="30dp"
+        android:layout_alignParentTop="true"
+        android:layout_centerHorizontal="true">
+
+
+        <EditText
+            android:id="@+id/regLoginName"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:hint="Login Name"
+            android:padding="5dp"
+            android:textColorHint="#f9f5f5"
+            android:background="#635E5A"
+            android:textSize="24sp" />
+
+        <EditText
+            android:id="@+id/regPassFirst"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="20dp"
+            android:hint="Password"
+            android:padding="5dp"
+            android:textColorHint="#f9f5f5"
+            android:background="#635E5A"
+            android:textSize="24sp" />
+
+        <EditText
+            android:id="@+id/regPassSecond"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="20dp"
+            android:hint="Confirm the Password"
+            android:padding="5dp"
+            android:textColorHint="#f9f5f5"
+            android:background="#635E5A"
+            android:textSize="24sp" />
+
+        <Button
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_gravity="center"
+            android:layout_marginTop="20dp"
+            android:background="#2A80B9"
+            android:onClick="registration"
+            android:paddingBottom="5dp"
+            android:paddingLeft="40dp"
+            android:paddingRight="40dp"
+            android:paddingTop="5dp"
+            android:text="save"
+            android:textColor="#FAFCFD"
+            android:textSize="16sp"  />
+
+        <TextView
+            android:id="@+id/regErrorMessage"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_gravity="center"
+            android:layout_marginTop="30dp"
+            android:text="*the line of an error messages"
+            android:textColor="#f41414"
+            android:textSize="15sp"
+            android:textStyle="italic" />
+    </LinearLayout>
+
+</RelativeLayout>

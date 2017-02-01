@@ -19,7 +19,7 @@ public class MyAsyncTask extends AsyncTask<Void, Integer, Void> {
         providerTasks.doInBackground();
         for (int i = 1; i < 11; i++) {
             try {
-                Thread.sleep(100);
+                Thread.sleep(10);
                 publishProgress(i);
             } catch (InterruptedException e) {
                 e.printStackTrace();

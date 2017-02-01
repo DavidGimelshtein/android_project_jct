@@ -9,24 +9,22 @@ import com.example.davidalex.postadeal.model.datasource.RemoteDsManager;
 
 public class ManagerFactory {
 
+    private static IDSManager dsManager;
+
     public static IDSManager getDsManager(String name) {
 
-        IDSManager dsManager;
-        switch (name) {
-            case "ListDsManager":
-                dsManager = new ListDsManager();
-                break;
-            case "RemoteDsManager":
-                dsManager = new RemoteDsManager();
-                break;
-            default:
-                dsManager = null;
+        if (dsManager == null) {
+            switch (name) {
+                case "ListDsManager":
+                    dsManager = new ListDsManager();
+                    break;
+                case "RemoteDsManager":
+                    dsManager = new RemoteDsManager();
+                    break;
+                default:
+                    dsManager = null;
+            }
         }
         return dsManager;
     }
-
-
-
-
-
 }

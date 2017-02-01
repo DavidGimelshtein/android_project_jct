@@ -8,16 +8,61 @@
     tools:context="com.example.davidalex.postadeal.controller.MainActivity">
 
     <TextView
+        android:id="@+id/userInfo"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:text="New Business"
-        android:textSize="24dp"
-        android:onClick="addNewBusiness"/>
+        android:text="hello"
+        android:textSize="25sp" />
+
     <TextView
-        android:layout_marginTop="50dp"
+        android:id="@+id/newBusiness"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
+        android:layout_gravity="center"
+        android:layout_weight="1"
+        android:gravity="center"
+        android:onClick="onClick"
+        android:text="New Business"
+        android:textSize="24dp" />
+
+    <TextView
+        android:id="@+id/newAction"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_gravity="center"
+        android:layout_weight="1"
+        android:gravity="center"
+        android:onClick="onClick"
         android:text="New Action"
-        android:textSize="24dp"
-        android:onClick="addNewAction"/>
+        android:textSize="24dp" />
+
+    <TextView
+        android:id="@+id/businessList"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_gravity="center"
+        android:layout_weight="1"
+        android:gravity="center"
+        android:onClick="onClick"
+        android:text="Your Business"
+        android:textSize="24dp" />
+
+    <TextView
+        android:id="@+id/actionList"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_gravity="center"
+        android:layout_weight="1"
+        android:gravity="center"
+        android:onClick="onClick"
+        android:text="Your Activities"
+        android:textSize="24dp" />
+
+    <ProgressBar
+        android:id="@+id/regProgressBar"
+        style="@android:style/Widget.Material.ProgressBar.Horizontal"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_alignParentBottom="true"
+        android:max="10" />
 </LinearLayout>

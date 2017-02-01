@@ -6,22 +6,38 @@ package com.example.davidalex.postadeal.model.entities;
 
 public class Business {
 
-    private int companyID;
+    private static int companyID;
+    private int userID;
     private String companyName;
     private String companyAdress;
     private String companyTel;
     private String companyEmail;
     private String companyWebSite;
+    private int companyIcon;
 
-    public Business(int companyID, String companyName, String companyAdress, String companyTel, String companyEmail,
-                    String companyWebSite) {
-        this.companyID = companyID;
+    public Business(int userID, String companyName, String companyAdress, String companyTel, String companyEmail,
+                    String companyWebSite, int companyIcon) {
+        companyID++;
+        this.userID = userID;
         this.companyName = companyName;
         this.companyAdress = companyAdress;
         this.companyTel = companyTel;
         this.companyEmail = companyEmail;
         this.companyWebSite = companyWebSite;
+        this.companyIcon = companyIcon;
     }
+
+    public int getCompanyIcon() {
+        return companyIcon;
+    }
+
+    public void setCompanyIcon(int companyIcon) {
+        this.companyIcon = companyIcon;
+    }
+
+    public int getUserID() {    return userID;    }
+
+    public void setUserID(int userID) {  this.userID = userID;    }
 
     public int getCompanyID() {
         return companyID;

@@ -1,0 +1,207 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:id="@+id/new_action_activity"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="@drawable/veneciya"
+    tools:context="com.example.davidalex.postadeal.controller.NewActionActivity">
+
+    <ProgressBar
+        android:id="@+id/newActionProgressBar"
+        style="@android:style/Widget.Material.ProgressBar.Horizontal"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_alignParentBottom="true"
+        android:max="10"
+        android:progressTint="#308e30" />
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:background="#9e000000"
+        android:orientation="vertical"
+        android:layout_alignParentTop="true"
+        android:layout_alignParentStart="true">
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginLeft="20dp"
+            android:layout_marginTop="5dp"
+            android:gravity="center"
+            android:text="Agency:"
+            android:textColor="@color/veneze_color"
+            android:textSize="20dp"
+            android:textStyle="bold|italic" />
+
+        <Spinner
+            android:id="@+id/newActionSpn"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginLeft="20dp"
+            android:layout_marginRight="20dp"
+            android:layout_marginTop="15dp"
+            android:background="@drawable/agencies_list_item"
+            android:dropDownWidth="180dp"
+            android:popupBackground="#000" />
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginLeft="20dp"
+            android:layout_marginTop="15dp"
+            android:gravity="center"
+            android:text="Date:"
+            android:textColor="@color/veneze_color"
+            android:textSize="20dp"
+            android:textStyle="bold|italic"
+            android:id="@+id/textView" />
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginLeft="20dp"
+            android:layout_marginRight="20dp"
+            android:layout_marginTop="15dp"
+            android:orientation="horizontal"
+            android:weightSum="2">
+
+            <EditText
+                android:id="@+id/actionStartDate"
+                android:layout_width="0dp"
+                android:layout_height="match_parent"
+                android:layout_marginRight="10dp"
+                android:layout_weight="1"
+                android:background="@drawable/agencies_list_item1"
+                android:gravity="center"
+                android:hint="Start"
+                android:inputType="numberDecimal"
+                android:padding="7dp"
+                android:textSize="18sp" />
+
+            <EditText
+                android:id="@+id/actionEndDate"
+                android:layout_width="0dp"
+                android:layout_height="match_parent"
+                android:layout_marginLeft="10dp"
+                android:layout_weight="1"
+                android:background="@drawable/agencies_list_item1"
+                android:gravity="center"
+                android:hint="End"
+                android:inputType="numberDecimal"
+                android:padding="7dp"
+                android:textSize="18sp" />
+
+        </LinearLayout>
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginLeft="20dp"
+            android:layout_marginTop="15dp"
+            android:gravity="center"
+            android:text="Description:"
+            android:textColor="@color/veneze_color"
+            android:textSize="20dp"
+            android:textStyle="bold|italic" />
+
+        <EditText
+            android:id="@+id/actionDescription"
+            android:layout_width="match_parent"
+            android:layout_height="100dp"
+            android:layout_marginLeft="20dp"
+            android:layout_marginRight="20dp"
+            android:layout_marginTop="15dp"
+            android:gravity="start"
+            android:padding="4dp"
+            android:background="#000"
+            android:textColor="#fff"
+            android:textStyle="bold"
+            android:textSize="18sp"
+            android:inputType="textMultiLine" />
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginLeft="20dp"
+            android:layout_marginRight="20dp"
+            android:layout_marginTop="15dp"
+            android:orientation="horizontal"
+            android:weightSum="2">
+
+            <TextView
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:layout_weight="1"
+                android:text="Price:"
+                android:textColor="@color/veneze_color"
+                android:textSize="20dp"
+                android:textStyle="bold|italic"
+                android:id="@+id/textView2" />
+
+            <TextView
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:layout_weight="1"
+                android:layout_marginLeft="20dp"
+                android:text="Place:"
+                android:textColor="@color/veneze_color"
+                android:textSize="20dp"
+                android:textStyle="bold|italic" />
+
+        </LinearLayout>
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginLeft="20dp"
+            android:layout_marginRight="20dp"
+            android:layout_marginTop="15dp"
+            android:orientation="horizontal"
+            android:weightSum="2">
+
+            <EditText
+                android:id="@+id/actionPrice"
+                android:layout_width="0dp"
+                android:layout_height="match_parent"
+                android:layout_marginRight="10dp"
+                android:layout_weight="1"
+                android:background="@drawable/agencies_list_item1"
+                android:gravity="center"
+                android:hint="$"
+                android:inputType="numberDecimal"
+                android:padding="7dp"
+                android:textSize="18sp" />
+
+            <EditText
+                android:id="@+id/actionPlacement"
+                android:layout_width="0dp"
+                android:layout_height="match_parent"
+                android:layout_marginLeft="10dp"
+                android:layout_weight="1"
+                android:background="@drawable/agencies_list_item1"
+                android:gravity="center"
+                android:hint="Country/City"
+                android:inputType="text"
+                android:padding="7dp"
+                android:textSize="18sp" />
+
+        </LinearLayout>
+
+
+        <Button
+            android:id="@+id/login_button"
+            android:layout_width="60dp"
+            android:layout_height="60dp"
+            android:layout_gravity="center"
+            android:layout_marginTop="30dp"
+            android:background="@drawable/ok_button"
+            android:onClick="addAction"
+            android:text="save"
+            android:textColor="#FAFCFD"
+            android:textSize="15sp" />
+
+    </LinearLayout>
+
+</RelativeLayout>
